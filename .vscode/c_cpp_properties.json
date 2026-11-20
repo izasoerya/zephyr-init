@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "name": "Zephyr ESP32-C3 (Root Build)",
+            "compileCommands": "/home/izasoerya/zephyrproject/build/compile_commands.json",
+            "compilerPath": "/home/izasoerya/zephyr-sdk-1.0.1/gnu/riscv64-zephyr-elf/bin/riscv64-zephyr-elf-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm"
+        }
+    ],
+    "version": 4
+}

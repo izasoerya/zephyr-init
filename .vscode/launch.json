@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug ESP32-C3 (cppdbg)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/izasoerya/zephyrproject/build/zephyr/zephyr.elf",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/home/izasoerya/zephyrproject",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/izasoerya/zephyr-sdk-1.0.1/gnu/riscv64-zephyr-elf/bin/riscv64-zephyr-elf-gdb",
+            "miDebuggerArgs": "-x /home/izasoerya/zephyrproject/projects/blinky/.gdbinit",
+            "miDebuggerServerAddress": "localhost:3333",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "postRemoteConnectCommands": [
+                {
+                    "description": "Disable FreeRTOS thread detection for Zephyr",
+                    "text": "monitor esp32c3.cpu0 configure -rtos none",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Reset and halt ESP32-C3",
+                    "text": "monitor reset halt",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Wipe stale hardware triggers from ESP32-C3 registers",
+                    "text": "monitor rbp all",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
